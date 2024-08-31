@@ -261,7 +261,7 @@ var rh = new Array(
       function firstscript(){
          var i=0;
          while( i<list.length ){
-            loadlist = JSON.parse(localStorage.getItem('azusave'+list[i]));
+            loadlist = JSON.parse(localStorage.getItem('sasarasave'+list[i]));
             if(loadlist == "true"){
                loadcheckbox = document.getElementById(list[i]);
                loadcheckbox.checked = true;
@@ -269,14 +269,14 @@ var rh = new Array(
             i++;
          }
           
-         loadlist = JSON.parse(localStorage.getItem('azusavefavorite'));
+         loadlist = JSON.parse(localStorage.getItem('sasarasavefavorite'));
          if(loadlist == "true"){
             loadcheckbox = document.getElementById('favorite');
             loadcheckbox.checked = true;
             FavoriteOn();
          }
           
-         loadlist = JSON.parse(localStorage.getItem('azusaveradio')); 
+         loadlist = JSON.parse(localStorage.getItem('sasarasaveradio')); 
          if(loadlist == "1"){
             loadcheckbox = document.getElementsByName('q1');
             loadcheckbox[1].checked = true;
@@ -295,12 +295,12 @@ var rh = new Array(
           while( i<list.length ){
              loadcheckbox = document.getElementById(list[i]);
              if(loadcheckbox.checked == true){
-                  localStorage.setItem('azusave'+list[i],JSON.stringify("true"));
+                  localStorage.setItem('sasarasave'+list[i],JSON.stringify("true"));
              }
              else{
-                 loadlist = JSON.parse(localStorage.getItem('azusave'+list[i]));
+                 loadlist = JSON.parse(localStorage.getItem('sasarasave'+list[i]));
                  if(loadlist == "true"){
-                    localStorage.removeItem('azusave'+list[i]);
+                    localStorage.removeItem('sasarasave'+list[i]);
                  }
              }
              i++;
@@ -318,15 +318,15 @@ var rh = new Array(
       function Delete(){
           var i = 0;
           while( i<list.length ){
-             localStorage.removeItem('azusave'+list[i]);
+             localStorage.removeItem('sasarasave'+list[i]);
              loadcheckbox = document.getElementById(list[i]);
              if(loadcheckbox.checked == true){
                   loadcheckbox.checked = false;
              }
              i++;
           }
-          localStorage.removeItem('azusavefavorite');
-          localStorage.removeItem('azusaveradio');
+          localStorage.removeItem('sasarasavefavorite');
+          localStorage.removeItem('sasarasaveradio');
       } 
        
        
@@ -345,7 +345,7 @@ var rh = new Array(
       function FavoriteOn() {
           var i = 0;
           while( i<list.length ){
-             loadlist = JSON.parse(localStorage.getItem('azusave'+list[i]));
+             loadlist = JSON.parse(localStorage.getItem('sasarasave'+list[i]));
              if(loadlist == "true"){
                 loadcontent = document.getElementById("c-"+list[i]);
                 loadcontent.classList.remove("c-active-none");
@@ -356,7 +356,7 @@ var rh = new Array(
              }
              i++;
           }
-          localStorage.setItem('azusavefavorite',JSON.stringify("true"));
+          localStorage.setItem('sasarasavefavorite',JSON.stringify("true"));
       }
        
       function FavoriteOff() {
@@ -366,7 +366,7 @@ var rh = new Array(
                 loadcontent.classList.remove("c-active-none");
              i++;
           }
-          localStorage.removeItem('azusavefavorite');
+          localStorage.removeItem('sasarasavefavorite');
       }
         
       
@@ -438,7 +438,7 @@ var rh = new Array(
                 element.insertBefore(elementload,element.children[element.lastChild]);
                 i++;
              }
-             localStorage.removeItem('azusaveradio');
+             localStorage.removeItem('sasarasaveradio');
              
          } 
          else if(radiocheck == "配信順"){
@@ -448,11 +448,11 @@ var rh = new Array(
                 element.insertBefore(elementload,element.children[element.lastChild]);
                 i++;
              }
-             localStorage.setItem('azusaveradio',JSON.stringify('1'));
+             localStorage.setItem('sasarasaveradio',JSON.stringify('1'));
          }
          else if(radiocheck == "歌唱回数順"){
              SCCheck();
-             localStorage.setItem('azusaveradio',JSON.stringify('2'));
+             localStorage.setItem('sasarasaveradio',JSON.stringify('2'));
          }
       }  
       
